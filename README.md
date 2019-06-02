@@ -5,7 +5,7 @@ Python Questionnaire - Backend
 
 ### Python 3.7
 
-Make sure Python 3.7 is installed on the system. Can be downloded from here: https://www.python.org/downloads/
+Make sure Python 3.7 is installed on the system. Can be downloded from here: https://www.python.org/downloads/. Please perform full install with alll options and it should install `pip` automatically.
 
 ### Running from CMD/Terminal
 
