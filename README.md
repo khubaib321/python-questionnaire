@@ -1,4 +1,4 @@
-# python-questionnaire
+# python_questionnaire
 Python Questionnaire - Backend
 
 ## Installation Instructions
