@@ -1,0 +1,50 @@
+{
+	"Food": {
+		"Hungry": "Are you hungry? (Yes/No)",
+		"Yes": {
+			"FoodType": "What would you like to eat? (Hamburger/Pizza/Pop Corn/Chicken)",
+			"Hamburger": "Nice, I will order a hamburger for you!",
+			"Pizza": {
+				"Mushrooms": "Would you like pizza with mushrooms? (Yes/No)",
+				"Yes": "Ok, I will order the best pizza in town for you!",
+				"No": "No? Well... okay."
+			},
+			"Pop Corn": {
+				"Flavour": "Which flavour would you like? (Cheese/Jalapeno)",
+				"Cheese": "Alright, that's great for your health.",
+				"Jalapeno": "Nice, just the way I like it."
+			},
+			"Chicken": {
+				"Beef": "Oh I forgot to mention. Beef is available too! You want it? (Yes/No)",
+				"Yes": {
+					"BeefType": "How would you like your beef? (Medium/Medium Rare)",
+					"Medium": "Ok, let me order it for you.",
+					"Medium Rare": "Ok, this is going to be good. Just wait for it."
+				},
+				"No": "Fine. Chicken it is then. You weakling."
+			}
+		},
+		"No": "Ok. Call me when you're hungry."
+	},
+	"Study": {
+		"Subject": "What are you studying? (Nothing/Something)",
+		"Nothing": {
+			"Pass": "You want to pass the exams or not? (Yes/No)",
+			"Yes": "Then open those books!",
+			"No": "Fine. Don't come crying to me then."
+		},
+		"Something": "Ok! But remember - Study hard, play harder ;)."
+	},
+	"Sports": {
+		"Game": "What sports games do you play? (Cricket/Football/Hockey/Tennis/Badminton)",
+		"Cricket": "Of course.",
+		"Football": "Nice.",
+		"Hockey": {
+			"Confirm": "Really? (Yes/No)",
+			"Yes": "Wow.",
+			"No": "Thought so."
+		},
+		"Tennis": "Super!",
+		"Badminton": "Ok."
+	}
+}
