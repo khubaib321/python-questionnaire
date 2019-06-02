@@ -4,7 +4,7 @@ import random
 from pprint import pprint
 from collections import OrderedDict
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 def list(request):
@@ -76,7 +76,7 @@ def writeDataToJsonFile(relativePath, data, checkExisting):
 
 
 def getQuestionnairesData():
-    return readDataFromJsonFile('questionnaires.json')
+    return readDataFromJsonFile('res/questionnaires.json')
 
 def initializeChat(request):
     response = {}
@@ -87,7 +87,7 @@ def initializeChat(request):
         return response
     if (int(conversationID) < 1):
         conversationID = random.randint(1, 1000000)
-        writeDataToJsonFile('conversations/' + str(conversationID) + questionnaireName + '.json', {}, False)
+        writeDataToJsonFile('assets/conversations/' + str(conversationID) + questionnaireName + '.json', {}, False)
     # get next question and send back in response with conversation id
     nextQuestion = continueChat(data)
     response = {
@@ -111,11 +111,11 @@ def continueChat(data):
     if questionAsked:
         chatHistory[questionAsked] = answerGiven
     nextQuestion = getNextQuestion(chatHistory, questionnaireName)
-    writeDataToJsonFile('conversations/' + str(conversationID) + questionnaireName + '.json', chatHistory, True)
+    writeDataToJsonFile('assets/conversations/' + str(conversationID) + questionnaireName + '.json', chatHistory, True)
     # return next question
     return nextQuestion
 
 def getChatHistory(conversationID, questionnaireName):
     if (int(conversationID) < 1):
         return {}
-    return readDataFromJsonFile('conversations/' + str(conversationID) + questionnaireName + '.json')
+    return readDataFromJsonFile('assets/conversations/' + str(conversationID) + questionnaireName + '.json')
