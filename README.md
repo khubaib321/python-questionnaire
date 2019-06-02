@@ -9,16 +9,20 @@ Make sure Python 3.7 is installed on the system. Can be downloded from here: htt
 
 ### Running from CMD/Terminal
 
-Create Virtual Environment
-`mkvirtualenv testenv`
+Create Virtual Environment <br>
+`mkvirtualenv testenv` <br>
 
-Install Django
-`pip install django`
-`pip install django-cors-headers`
+Install Django <br>
+`pip install django` <br>
+`pip install django-cors-headers` <br>
 
-Clone Repository
-`git clone https://github.com/khubaib321/python_questionnaire.git`
+Clone Repository <br>
+`git clone https://github.com/khubaib321/python_questionnaire.git` <br>
 
-Start Server
-`cd python_questionnaire`
-`python manage.py runserver`
+Start Server <br>
+`cd python_questionnaire` <br>
+`python manage.py runserver` <br>
+
+Once the server is up and running the react app (https://github.com/khubaib321/react_questionnaire) can be installed and project should start working.
+
+Thank you.
