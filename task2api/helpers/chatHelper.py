@@ -13,7 +13,7 @@ def initializeChat(request):
         return response
     if (int(conversationID) < 1):
         conversationID = random.randint(1, 1000000)
-        dirHelper.writeDataToJsonFile('../assets/conversations/' +
+        dirHelper.writeDataToJsonFile('task2api/assets/conversations/' +
                                       str(conversationID) + questionnaireName + '.json', {}, False)
     # get next question and send back in response with conversation id
     nextQuestion = continueChat(data)
@@ -39,7 +39,7 @@ def continueChat(data):
     if questionAsked:
         chatHistory[questionAsked] = answerGiven
     nextQuestion = getNextQuestion(chatHistory, questionnaireName)
-    dirHelper.writeDataToJsonFile('../assets/conversations/' + str(conversationID) +
+    dirHelper.writeDataToJsonFile('task2api/assets/conversations/' + str(conversationID) +
                                   questionnaireName + '.json', chatHistory, True)
     # return next question
     return nextQuestion
@@ -48,13 +48,13 @@ def continueChat(data):
 def getChatHistory(conversationID, questionnaireName):
     if (int(conversationID) < 1):
         return {}
-    return dirHelper.readDataFromJsonFile('../assets/conversations/' + str(conversationID) + questionnaireName + '.json')
+    return dirHelper.readDataFromJsonFile('task2api/assets/conversations/' + str(conversationID) + questionnaireName + '.json')
 
 
 def getNextQuestion(chatHistory, questionnaireName):
     nextQuestion = {}
     questionnaires = dirHelper.readDataFromJsonFile(
-        '../res/questionnaires.json')
+        'task2api/res/questionnaires.json')
     conversationPart = questionnaires[questionnaireName]
     # if chat history is empty it means chat is just starting
     if not hasattr(chatHistory, 'items'):
@@ -79,7 +79,7 @@ def getNextQuestion(chatHistory, questionnaireName):
 
 def printHistory(chatHistory, questionnaireName):
     questionnaires = dirHelper.readDataFromJsonFile(
-        '../res/questionnaires.json')
+        'task2api/res/questionnaires.json')
     conversationPart = questionnaires[questionnaireName]
     chatHistoryString = ''
     if hasattr(chatHistory, 'items'):
