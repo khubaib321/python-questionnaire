@@ -18,8 +18,15 @@ def list(request):
 def chat(request):
     if (request.method != 'POST'):
         return JsonResponse('This Method Only Serves POST Requests.', safe=False)
+    ensureDirectoriesExist()
     response = initializeChat(request)
     return JsonResponse(response, safe=False)
+
+def ensureDirectoriesExist():
+    assetsConv = 'assets/conversations'
+    absolutePath = getFullPath(assetsConv)
+    if not os.path.exists(absolutePath):
+        os.makedirs(absolutePath, exist_ok=True)
 
 def getNextQuestion(chatHistory, questionnaireName):
     nextQuestion = {}
