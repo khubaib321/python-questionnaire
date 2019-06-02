@@ -27,6 +27,6 @@ Clones this Repository. <br>
 
 Starts Server. <br>
 
-Once the server is up and running the react app (https://github.com/khubaib321/react_questionnaire) can be installed and project should start working. <br>
+Once the server is up and running the [react app](https://github.com/khubaib321/react_questionnaire) can be installed and project should start working. <br>
 
 Thank you.
