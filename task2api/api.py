@@ -18,8 +18,15 @@ def list(request):
 def chat(request):
     if (request.method != 'POST'):
         return JsonResponse('This Method Only Serves POST Requests.', safe=False)
+    ensureDirectoriesExist()
     response = initializeChat(request)
     return JsonResponse(response, safe=False)
+
+def ensureDirectoriesExist():
+    assetsConv = 'assets/conversations'
+    absolutePath = getFullPath(assetsConv)
+    if not os.path.exists(absolutePath):
+        os.makedirs(absolutePath, exist_ok=True)
 
 def getNextQuestion(chatHistory, questionnaireName):
     nextQuestion = {}
@@ -36,6 +43,7 @@ def getNextQuestion(chatHistory, questionnaireName):
             conversationPart = conversationPart[value]
     # if only last response is remaining means chat has ended
     if type(conversationPart) is str:
+        printHistory(chatHistory, questionnaireName)
         return conversationPart
     # otherwise return the next question in conversation
     if hasattr(conversationPart, 'items'):
@@ -43,6 +51,19 @@ def getNextQuestion(chatHistory, questionnaireName):
             nextQuestion = {key: value}
             return nextQuestion
     return ''
+
+def printHistory(chatHistory, questionnaireName):
+    questionnaires = getQuestionnairesData()
+    conversationPart = questionnaires[questionnaireName]
+    chatHistoryString = ''
+    if hasattr(chatHistory, 'items'):
+        for key, value in chatHistory.items():
+            if not chatHistoryString:
+                chatHistoryString += key + '->' + value
+            else:
+                chatHistoryString += '->' + key + '->' + value
+    print(questionnaireName)
+    print(chatHistoryString)
 
 def getFullPath(relativePath):
     fileDir = os.path.dirname(__file__)
